@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.1.20"
     application
 }
 
@@ -11,6 +11,8 @@ repositories {
 }
 
 dependencies {
+    implementation("com.dropbox.core:dropbox-core-sdk:7.0.0")
+
     testImplementation(kotlin("test"))
 }
 
@@ -19,7 +21,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(21)
 }
 
 application {
