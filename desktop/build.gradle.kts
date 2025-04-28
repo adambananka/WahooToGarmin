@@ -1,21 +1,14 @@
 plugins {
-    kotlin("jvm") version "2.1.20"
-}
+    // Apply the shared build logic from a convention plugin.
+    id("buildsrc.convention.kotlin-jvm")
 
-group = "com.github.adambananka.wahootogarmin"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+    application
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation(project(":core"))
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(21)
+application {
+    mainClass.set("MainKt")
 }
