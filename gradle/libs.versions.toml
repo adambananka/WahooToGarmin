@@ -1,0 +1,86 @@
+[versions]
+# Android core dependencies
+core-ktx = "1.16.0"
+appcompat = "1.7.0"
+material = "1.12.0"
+constraint-layout = "2.2.1"
+
+# Navigation components
+navigation = "2.8.9"
+
+# Kotlin and related libraries
+kotlin = "2.0.21"
+kotlinx-datetime = "0.6.1"
+kotlinx-serialization = "1.7.3"
+kotlinx-coroutines = "1.9.0"
+
+# Third-party dependencies
+dropbox = "7.0.0"
+
+# Testing dependencies
+junit = "4.13.2"
+junit-android = "1.2.1"
+espresso = "3.6.1"
+
+# Build tools
+gradle = "8.9.2"
+
+
+[libraries]
+# Android core
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+android-material = { module = "com.google.android.material:material", version.ref = "material" }
+androidx-constraint-layout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraint-layout" }
+
+# Navigation
+androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+
+# Kotlin ecosystem
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# Third-party
+dropbox-sdk = { module = "com.dropbox.core:dropbox-core-sdk", version.ref = "dropbox" }
+
+# Testing
+junit = { module = "junit:junit", version.ref = "junit" }
+junit-android = { module = "androidx.test.ext:junit", version.ref = "junit-android" }
+espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+
+# Build tools
+android-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+
+
+[bundles]
+androidx-core = [
+    "androidx-core-ktx",
+    "androidx-appcompat",
+    "android-material",
+    "androidx-constraint-layout"
+]
+androidx-navigation = [
+    "androidx-navigation-fragment",
+    "androidx-navigation-ui"
+]
+kotlinx = [
+    "kotlinx-datetime",
+    "kotlinx-serialization",
+    "kotlinx-coroutines"
+]
+testing = [
+    "junit",
+    "junit-android",
+    "espresso"
+]
+
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }

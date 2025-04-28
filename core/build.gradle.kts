@@ -1,29 +1,13 @@
 plugins {
-    kotlin("jvm") version "2.1.20"
-    application
-}
-
-group = "com.github.adambananka.wahootogarmin"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+    // Apply the shared build logic from a convention plugin.
+    id("buildsrc.convention.kotlin-jvm")
+    // Apply Kotlin Serialization plugin from `gradle/libs.versions.toml`.
+    alias(libs.plugins.kotlin.serialization)
 }
 
 dependencies {
-    implementation("com.dropbox.core:dropbox-core-sdk:7.0.0")
-
+    // Apply the kotlinx bundle of dependencies from the version catalog (`gradle/libs.versions.toml`).
+    implementation(libs.bundles.kotlinx)
+    implementation(libs.dropbox.sdk)
     testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(21)
-}
-
-application {
-    mainClass.set("MainKt")
 }
